@@ -52,7 +52,7 @@ module GrapeExampleApp
           begin
             authenticate!
 
-            review = ::Review.find(params[:id])
+            review = ::Review.find(params[:id].to_i)
             api_response(review.to_json)
           rescue ActiveRecord::RecordNotFound => e
             status 404 # Not found
@@ -118,7 +118,7 @@ module GrapeExampleApp
           safe_params = clean_params(params[:attributes]).permit(:title, :body)
 
           if safe_params
-            review = ::Review.find(params[:id])
+            review = ::Review.find(params[:id].to_i)
             review.update_attributes(safe_params)
             status 200 # Saved OK
           end

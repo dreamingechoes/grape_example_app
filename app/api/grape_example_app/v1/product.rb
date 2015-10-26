@@ -52,7 +52,7 @@ module GrapeExampleApp
           begin
             authenticate!
 
-            product = ::Product.find(params[:id])
+            product = ::Product.find(params[:id].to_i)
             api_response(product.to_json)
           rescue ActiveRecord::RecordNotFound => e
             status 404 # Not found
@@ -125,7 +125,7 @@ module GrapeExampleApp
           safe_params = clean_params(params[:attributes]).permit(:name, :description, :image_url, :price, :stock)
 
           if safe_params
-            product = ::Product.find(params[:id])
+            product = ::Product.find(params[:id].to_i)
             product.update_attributes(safe_params)
             status 200 # Saved OK
           end

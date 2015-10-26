@@ -40,9 +40,9 @@ To start using this API, you only have to do the typical ***Rails*** things:
 ```sh
 user@computer:~$ git clone git@github.com:dreamingechoes/grape_example_app.git
 user@computer:~$ cd grape_example_app
-user@computer:/chiquibot$ bundle install
-user@computer:/chiquibot$ rake db:setup
-user@computer:/chiquibot$ rake db:seed
+user@computer:/grape_example_app$ bundle install
+user@computer:/grape_example_app$ rake db:setup
+user@computer:/grape_example_app$ rake db:seed
 ```
 
 * When all this finish, you're ready to launch the app!

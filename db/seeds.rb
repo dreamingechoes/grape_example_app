@@ -1,5 +1,5 @@
 User.create!([
-  {email: "example@email.com", encrypted_password: "$2a$10$cK.IBWQaabU9qKoN8Jr2Je71t3iZmUpZRj.Yb2NVbTt.GCc1eQLX6", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, name: "Example user"}
+  {email: "example@email.com", password: "123456example", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, name: "Example user"}
 ])
 ApiKey.create!([
   {access_token: "18dfef7acf97765b54abecdf86a25bba", expires_at: "2043-03-12 21:03:46", user_id: 3, active: nil}

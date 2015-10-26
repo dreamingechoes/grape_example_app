@@ -11,7 +11,9 @@
     "API",
     "Grape Swagger"
   ],
-  "scripts": {},
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate && bundle exec rake db:seed"
+  }
   "env": {
     "RAILS_ENV": "production"
   }

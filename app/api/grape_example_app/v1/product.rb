@@ -47,12 +47,13 @@ module GrapeExampleApp
         end
         params do
           use :token, type: String, desc: 'Authentication token'
+          use :id, type: Integer, desc: 'Product ID'
         end
         get do
           begin
             authenticate!
 
-            product = ::Product.find(params[:id].to_i)
+            product = ::Product.find(params[:id])
             api_response(product.to_json)
           rescue ActiveRecord::RecordNotFound => e
             status 404 # Not found
@@ -111,6 +112,7 @@ module GrapeExampleApp
       end
       params do
         use :token, type: String, desc: 'Authentication token'
+        use :id, type: Integer, desc: 'Product ID'
         requires :attributes, type: Hash, desc: 'Product object to create' do
           requires :name, type: String, desc: 'Name of product'
           requires :description, type: String, desc: 'Description of product'
@@ -125,7 +127,7 @@ module GrapeExampleApp
           safe_params = clean_params(params[:attributes]).permit(:name, :description, :image_url, :price, :stock)
 
           if safe_params
-            product = ::Product.find(params[:id].to_i)
+            product = ::Product.find(params[:id])
             product.update_attributes(safe_params)
             status 200 # Saved OK
           end

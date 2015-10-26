@@ -47,12 +47,13 @@ module GrapeExampleApp
         end
         params do
           use :token, type: String, desc: 'Authentication token'
+          use :id, type: Integer, desc: 'Review ID'
         end
         get do
           begin
             authenticate!
 
-            review = ::Review.find(params[:id].to_i)
+            review = ::Review.find(params[:id])
             api_response(review.to_json)
           rescue ActiveRecord::RecordNotFound => e
             status 404 # Not found
@@ -107,6 +108,7 @@ module GrapeExampleApp
       end
       params do
         use :token, type: String, desc: 'Authentication token'
+        use :id, type: Integer, desc: 'Review ID'
         requires :attributes, type: Hash, desc: 'Review object to create' do
           requires :title, type: String, desc: 'Title of review'
           requires :body, type: String, desc: 'Body of review'
@@ -118,7 +120,7 @@ module GrapeExampleApp
           safe_params = clean_params(params[:attributes]).permit(:title, :body)
 
           if safe_params
-            review = ::Review.find(params[:id].to_i)
+            review = ::Review.find(params[:id])
             review.update_attributes(safe_params)
             status 200 # Saved OK
           end

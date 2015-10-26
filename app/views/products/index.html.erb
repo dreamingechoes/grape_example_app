@@ -1,12 +1,14 @@
+<p id="notice"><%= notice %></p>
+
 <div class="container">
   <div class="row">
-    <h3>Users</h3>
+    <h3>Products</h3>
     <div class="">
       <table class="table">
         <tbody>
-          <% @users.each do |user| %>
+          <% @products.each do |product| %>
             <tr>
-              <%= render user %>
+              <%= render product %>
             </tr>
           <% end %>
         </tbody>

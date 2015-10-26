@@ -1,0 +1,15 @@
+<%= simple_form_for(@review) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :user_id, as: :hidden, value: current_user.id %>
+    <%= f.select :product, Product.all.map { |p| [p.name, p.id] },
+        prompt: "Select a product", class: "select optional form-control", required: true %>
+    <%= f.input :title, required: true %>
+    <%= f.input :body, required: true %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

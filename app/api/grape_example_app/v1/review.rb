@@ -47,7 +47,7 @@ module GrapeExampleApp
         end
         params do
           use :token, type: String, desc: 'Authentication token'
-          use :id, type: Integer, desc: 'Review ID'
+          requires :id, type: Integer, desc: "Review ID"
         end
         get do
           begin
@@ -108,7 +108,7 @@ module GrapeExampleApp
       end
       params do
         use :token, type: String, desc: 'Authentication token'
-        use :id, type: Integer, desc: 'Review ID'
+        requires :id, type: Integer, desc: "Review ID"
         requires :attributes, type: Hash, desc: 'Review object to create' do
           requires :title, type: String, desc: 'Title of review'
           requires :body, type: String, desc: 'Body of review'

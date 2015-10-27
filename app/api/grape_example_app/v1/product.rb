@@ -47,7 +47,7 @@ module GrapeExampleApp
         end
         params do
           use :token, type: String, desc: 'Authentication token'
-          use :id, type: Integer, desc: 'Product ID'
+          requires :id, type: Integer, desc: "Product ID"
         end
         get do
           begin
@@ -112,7 +112,7 @@ module GrapeExampleApp
       end
       params do
         use :token, type: String, desc: 'Authentication token'
-        use :id, type: Integer, desc: 'Product ID'
+        requires :id, type: Integer, desc: "Product ID"
         requires :attributes, type: Hash, desc: 'Product object to create' do
           requires :name, type: String, desc: 'Name of product'
           requires :description, type: String, desc: 'Description of product'

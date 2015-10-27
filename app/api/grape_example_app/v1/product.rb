@@ -21,16 +21,13 @@ module GrapeExampleApp
     end
 
     resource :products do
-      desc 'REST GET with no other parameter than authentication token.' do
+      desc 'REST GET with no parameters.' do
         detail <<-NOTE
             Make a query for products.
             -----------------
 
             Returns an array of all products.
           NOTE
-      end
-      params do
-        use :token, type: String, desc: 'Authentication token'
       end
       get do
         api_response(::Product.all.to_json)

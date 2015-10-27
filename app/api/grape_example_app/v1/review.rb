@@ -21,16 +21,13 @@ module GrapeExampleApp
     end
 
     resource :reviews do
-      desc 'REST GET with no other parameter than authentication token.' do
+      desc 'REST GET with no parameters.' do
         detail <<-NOTE
             Make a query for reviews.
             -----------------
 
             Returns an array of all reviews.
           NOTE
-      end
-      params do
-        use :token, type: String, desc: 'Authentication token'
       end
       get do
         api_response(::Review.all.to_json)

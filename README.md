@@ -55,7 +55,7 @@ user@computer:/grape_example_app$ rails s
 **NOTE:** the seed.rb file has an ApiKey example token for testing the API, which is **18dfef7acf97765b54abecdf86a25bba**, but on ApiKey.create() method it assigns other random **access_token**. If you want to use the example token for testing purpose, update via console the attribute **access_token** of the ApiKey to **18dfef7acf97765b54abecdf86a25bba**, like this:
 
 ```ruby
-user@computer:/grape_example_app$ rais console
+user@computer:/grape_example_app$ rails console
 Loading development environment (Rails 4.2.4)
 >> a = ApiKey.first
   ApiKey Load (0.3ms)  SELECT  `api_keys`.* FROM `api_keys`  ORDER BY `api_keys`.`id` ASC LIMIT 1
